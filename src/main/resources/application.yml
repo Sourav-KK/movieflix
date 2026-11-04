@@ -3,6 +3,7 @@ spring:
         username: postgres
         password: user@123
         url: jdbc:postgresql://localhost:5432/movieflix
+        driver-class-name: org.postgresql.Driver
     jpa:
         database-platform: org.hibernate.dialect.PostgreSQLDialect
         hibernate:
