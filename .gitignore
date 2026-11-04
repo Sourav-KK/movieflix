@@ -12,12 +12,16 @@ target/
 .settings
 .springBeans
 .sts4-cache
-
+.yml
 ### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
 *.ipr
+
+# Application configuration containing secrets
+application-local.yml
+application-local.properties
 
 ### NetBeans ###
 /nbproject/private/
