@@ -5,13 +5,16 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Set;
 
 @Entity
+@Table(name="movies")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@Setter
 public class movies {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

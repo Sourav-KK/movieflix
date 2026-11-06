@@ -14,13 +14,12 @@ import java.io.IOException;
 import java.io.InputStream;
 
 @RestController
-
 @RequestMapping("/file/")
 public class FileController {
     @Autowired
     private FileService fileService;
 
-    @Value("${projects.poster}") // value from .yml
+    @Value("${project.poster}") // value from .yml
     private String path;
 
     @PostMapping("/upload")

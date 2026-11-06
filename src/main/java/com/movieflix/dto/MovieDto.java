@@ -10,7 +10,7 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class moviedto {
+public class MovieDto {
     private Integer id;
 
     @NotBlank(message = "Please provide movie title")
@@ -31,5 +31,5 @@ public class moviedto {
     private Float rating;
 
     @NotBlank(message = "Please provide poster url")
-    private String posterUrl;
+    private String posterUrl; // url of image
 }
