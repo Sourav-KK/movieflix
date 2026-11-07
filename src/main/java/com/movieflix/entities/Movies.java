@@ -15,7 +15,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
-public class movies {
+public class Movies {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

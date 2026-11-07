@@ -1,7 +1,8 @@
 package com.movieflix.service.impl;
 
 import com.movieflix.dto.MovieDto;
-import com.movieflix.entities.movies;
+import com.movieflix.entities.Movies;
+import com.movieflix.repository.MovieReopsitory;
 import com.movieflix.service.FileService;
 import com.movieflix.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +15,17 @@ import java.util.List;
 
 @Service
 public class MovieServiceImpl implements MovieService {
-    /*@Autowired
-    private MovieRepo movieRepo;*/
+    @Autowired
+    private MovieReopsitory movieRepo;
+
     @Autowired
     private FileService fileService;
 
     @Value("${project.poster}") // value from .yml
     private String path;
+
+    @Value("${base.url}") // value from .yml
+    private String baseurl;
 
     @Override
     public List<MovieDto> getMovies() throws IOException {
@@ -36,12 +41,17 @@ public class MovieServiceImpl implements MovieService {
     public MovieDto addMovie(MovieDto movieDto, MultipartFile file) throws IOException {
         String uploadedFileName = fileService.uploadFile(path, file);
 
-        movies movie = new movies(
-                movieDto.setId(),
-                movieDto.setTitle();
-        );
+        Movies movie = new Movies();
         movieDto.setPoster(uploadedFileName);
 
+        movieRepo.save(movie);
+
+        // generate posterUrl
+        String posterUrl= baseurl + "/file/" + uploadedFileName;
+
+        //  map movie object to dto object and return it
+        MovieDto movieDto1 = new MovieDto();
+        movieDto1.setPoster(posterUrl);
         return null;
     }
 }
